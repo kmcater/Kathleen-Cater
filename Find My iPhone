@@ -1,0 +1,142 @@
+<html>
+<head>
+  <title>Find My iPhone</title>
+</head>
+  <body id="theBody">
+
+    <div class="container">
+      <div class="row">
+        
+        <div class="col-md-4"></div>
+        
+        <div id="workArea" class="col-md-4 col-xs-12">
+          <div id="warningMessage">
+            <p>Warning! Your session has expired. You have been automatically signed out to protect your privacy.</p>
+          </div>
+      
+          <img id="radarIcon" src="https://is1-ssl.mzstatic.com/image/thumb/Purple1/v4/8a/84/70/8a847022-14af-1038-0a9f-651ac230cd58/mzl.vqllpzjj.png/246x0w.jpg" alt="find-my-iphone" class="find-my-iphone" style="width: 200px; height: 170px;">
+          <div class="title">
+            <h1><center>Find My iPhone</center></h1>
+    </div>
+          <form>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="usernamePrepend">Apple ID&nbsp;</span>
+              </div>
+              <input id="username" type="text" class="form-control" name="username" placeholder="Email">
+            </div>
+            <div class="input-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text" id="passwordPrepend">Password</span>
+              </div>
+              <input id="password" type="password" class="form-control" name="password" placeholder="Required">
+            </div>
+            <button id="signInButton" type="button" class="btn btn-medium btn-success">
+              Sign In...
+            </button>
+            <a href="https://support.apple.com/en-us/HT201487">Forgot Apple ID or Password?</a>
+    <br><br><a href="https://support.apple.com/en-us/HT205362">Setup Instructions</a>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
+  </body>
+</html>
+
+#theBody {
+  background-color: grey;
+  height: 100px;
+  width: 300px;
+  position: absolute;
+  margin-right: 550px;
+  margin-left: 550px;
+}
+#workArea {
+  background-color: white;
+  height: 650px;
+  border-radius: 10px;
+  position: absolute;
+}
+#radarIcon {
+  width: 150px;
+  height: 200px;
+  display: block;
+  margin: 75px auto 35px auto;
+}
+form {
+  margin-bottom: 30px;
+  padding: 0 40px 0 40px;
+}
+#username {
+  border-radius: 5px;
+}
+#password {
+  border-radius: 5px;
+}
+#signInButton {
+  display: block;
+  margin: 20px auto 20px auto;
+  width: 200px;
+  color: black;
+  background-color: white;
+  border-radius: 5px;
+}
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: green;
+  background-color: transparent;
+  text-decoration: none;
+}
+#warningMessage {
+  background-color: LightGray;
+  color: green;
+  border-radius: 7px;
+  display: none;
+}
+#warningMessage p {
+  margin-right: 5px;
+  padding: 0px 20px 0px 10px;
+}
+#warningButton {
+  position: absolute;
+  left: 89.5%;
+  bottom: 91%;
+  border-radius: 0px 10px 0px 10px;
+}
+#successButton {
+  position: absolute;
+  left: 89.5%;
+  bottom: 90.4%;
+  border-radius: 0px 10px 10px 0px;
+}
+
+
+$(document).ready(function() {
+  $("#warningMessage").slideDown("slow");
+});
+
+$("#warningButton").click(function() {
+  document.getElementById("warningMessage").style.display = "none";
+});
+
+$("#successButton").click(function() {});
+
+$("#signInButton").click(function() {
+  var email = $("#username").val();
+  var password = $("#password").val();
+
+  if (email != "" && password != "") {
+    document.getElementById("signInButton").style.background = "#18AA48";
+    alert("Successful!");
+  } else {
+    alert("Must enter a username and password!");
+  }
+});
+
+$("#warningMessage").click(function() {
+  document.getElementById("warningMessage").style.display = "none";
+});
